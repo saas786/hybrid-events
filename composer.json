@@ -1,0 +1,37 @@
+{
+    "name": "themehybrid/hybrid-events",
+    "description": "The Events package.",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "wordpress"
+    ],
+    "authors": [
+        {
+            "name": "Theme Hybrid",
+            "email": "themehybrid@gmail.com",
+            "homepage": "https://themehybrid.com",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/themehybrid/hybrid-events",
+    "support": {
+        "issues": "https://github.com/themehybrid/hybrid-events/issues",
+        "forum": "https://themehybrid.com/board/forums/hybrid-core"
+    },
+    "require": {
+        "php": ">=8.1",
+        "themehybrid/hybrid-core": "^7.0",
+        "themehybrid/hybrid-contracts": "^2.0",
+        "themehybrid/hybrid-tools": "^2.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Hybrid\\Events\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
