@@ -4,7 +4,7 @@ The Events package for Hybrid Core.
 
 ## Requirements
 
-* PHP 8.1+.
+* PHP 8.0+.
 * [Composer](https://getcomposer.org/) for managing PHP dependencies.
 
 ## Copyright and License
