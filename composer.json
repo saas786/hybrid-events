@@ -20,8 +20,8 @@
     },
     "require": {
         "php": ">=8.1",
-        "themehybrid/hybrid-core": "^7.0",
         "themehybrid/hybrid-contracts": "^2.0",
+        "themehybrid/hybrid-core": "^7.0",
         "themehybrid/hybrid-tools": "^2.0"
     },
     "minimum-stability": "dev",

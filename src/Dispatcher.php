@@ -47,10 +47,9 @@ class Dispatcher implements DispatcherContract {
     /**
      * Create a new event dispatcher instance.
      *
-     * @param  \Hybrid\Contracts\Container\Container|null $container
      * @return void
      */
-    public function __construct( ContainerContract $container = null ) {
+    public function __construct( ?ContainerContract $container = null ) {
         $this->container = $container ?: new Container();
     }
 
@@ -306,8 +305,7 @@ class Dispatcher implements DispatcherContract {
     /**
      * Prepare the listeners for a given event.
      *
-     * @param  string $eventName
-     * @return \Closure[]
+     * @return array<\Closure>
      */
     protected function prepareListeners( string $eventName ) {
         $listeners = [];
