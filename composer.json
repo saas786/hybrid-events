@@ -29,7 +29,10 @@
     "autoload": {
         "psr-4": {
             "Hybrid\\Events\\": "src/"
-        }
+        },
+        "files": [
+            "src/functions-helpers.php"
+        ]
     },
     "config": {
         "sort-packages": true
