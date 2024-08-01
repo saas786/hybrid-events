@@ -2,6 +2,14 @@
 
 You can see the changes made via the [commit log](https://github.com/themehybrid/hybrid-events/commits/master) for the latest release.
 
+## [1.0.2] - 2024-08-01
+
+### Changed
+
+- sync with https://github.com/illuminate/support/releases/tag/v11.18.1
+- sync with https://github.com/illuminate/events/releases/tag/v11.18.1
+- lint php files
+
 ## [1.0.1] - 2023-11-06
 
 ### Changed
