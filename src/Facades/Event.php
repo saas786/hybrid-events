@@ -22,7 +22,7 @@ use Hybrid\Core\Facades\Facade;
  * @method static void forgetPushed()
  * @method static \Hybrid\Events\Dispatcher setQueueResolver(callable $resolver)
  * @method static array getRawListeners()
- * @method static void macro(string $name, object|callable $macro)
+ * @method static void macro(string $name, object|callable $macro, object|callable $macro = null)
  * @method static void mixin(object $mixin, bool $replace = true)
  * @method static bool hasMacro(string $name)
  * @method static void flushMacros()
@@ -33,6 +33,7 @@ use Hybrid\Core\Facades\Facade;
  * @method static void assertNothingDispatched()
  * @method static \Hybrid\Tools\Collection dispatched(string $event, callable|null $callback = null)
  * @method static bool hasDispatched(string $event)
+ * @method static array dispatchedEvents()
  */
 class Event extends Facade {
 

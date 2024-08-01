@@ -12,7 +12,7 @@ class Provider extends ServiceProvider {
      * @return void
      */
     public function register() {
-        $this->app->singleton( 'events', static fn( $app) => new Dispatcher( $app ) );
+        $this->app->singleton( 'events', static fn( $app ) => new Dispatcher( $app ) );
     }
 
 }
