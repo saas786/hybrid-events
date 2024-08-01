@@ -36,6 +36,7 @@ use Hybrid\Core\Facades\Facade;
  * @method static array dispatchedEvents()
  */
 class Event extends Facade {
+
     /**
      * Get the registered name of the component.
      *
@@ -44,4 +45,5 @@ class Event extends Facade {
     protected static function getFacadeAccessor() {
         return 'events';
     }
+
 }

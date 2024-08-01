@@ -6,6 +6,7 @@ use Hybrid\Contracts\Events\Dispatcher as DispatcherContract;
 use Hybrid\Tools\Traits\ForwardsCalls;
 
 class NullDispatcher implements DispatcherContract {
+
     use ForwardsCalls;
 
     /**
@@ -29,8 +30,8 @@ class NullDispatcher implements DispatcherContract {
      * Don't fire an event.
      *
      * @param string|object $event
-     * @param mixed $payload
-     * @param bool $halt
+     * @param mixed         $payload
+     * @param bool          $halt
      * @return void
      */
     public function dispatch( $event, $payload = [], $halt = false ) {}
@@ -39,7 +40,7 @@ class NullDispatcher implements DispatcherContract {
      * Don't register an event and payload to be fired later.
      *
      * @param string $event
-     * @param array $payload
+     * @param array  $payload
      * @return void
      */
     public function push( $event, $payload = [] ) {}
@@ -48,7 +49,7 @@ class NullDispatcher implements DispatcherContract {
      * Don't dispatch an event.
      *
      * @param string|object $event
-     * @param mixed $payload
+     * @param mixed         $payload
      * @return mixed
      */
     public function until( $event, $payload = [] ) {}
@@ -56,7 +57,7 @@ class NullDispatcher implements DispatcherContract {
     /**
      * Register an event listener with the dispatcher.
      *
-     * @param \Closure|string|array $events
+     * @param \Closure|string|array      $events
      * @param \Closure|string|array|null $listener
      * @return void
      */
@@ -117,10 +118,11 @@ class NullDispatcher implements DispatcherContract {
      * Dynamically pass method calls to the underlying dispatcher.
      *
      * @param string $method
-     * @param array $parameters
+     * @param array  $parameters
      * @return mixed
      */
     public function __call( $method, $parameters ) {
         return $this->forwardDecoratedCallTo( $this->dispatcher, $method, $parameters );
     }
+
 }

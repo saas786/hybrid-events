@@ -3,6 +3,7 @@
 namespace Hybrid\Events;
 
 trait Dispatchable {
+
     /**
      * Dispatch the event with the given arguments.
      *
@@ -15,7 +16,7 @@ trait Dispatchable {
     /**
      * Dispatch the event with the given arguments if the given truth test passes.
      *
-     * @param bool $boolean
+     * @param bool  $boolean
      * @param mixed ...$arguments
      * @return mixed
      */
@@ -28,7 +29,7 @@ trait Dispatchable {
     /**
      * Dispatch the event with the given arguments unless the given truth test passes.
      *
-     * @param bool $boolean
+     * @param bool  $boolean
      * @param mixed ...$arguments
      * @return mixed
      */
@@ -37,4 +38,5 @@ trait Dispatchable {
             return event( new static( ...$arguments ) );
         }
     }
+
 }

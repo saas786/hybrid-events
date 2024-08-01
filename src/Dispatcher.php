@@ -13,6 +13,7 @@ use Hybrid\Tools\Traits\ReflectsClosures;
 use function Hybrid\Tools\collect;
 
 class Dispatcher implements DispatcherContract {
+
     use Macroable;
     use ReflectsClosures;
 
@@ -51,13 +52,13 @@ class Dispatcher implements DispatcherContract {
      * @return void
      */
     public function __construct( ?ContainerContract $container = null ) {
-        $this->container = $container ?: new Container;
+        $this->container = $container ?: new Container();
     }
 
     /**
      * Register an event listener with the dispatcher.
      *
-     * @param \Closure|string|array $events
+     * @param \Closure|string|array      $events
      * @param \Closure|string|array|null $listener
      * @return void
      */
@@ -81,7 +82,7 @@ class Dispatcher implements DispatcherContract {
     /**
      * Setup a wildcard listener callback.
      *
-     * @param string $event
+     * @param string          $event
      * @param \Closure|string $listener
      * @return void
      */
@@ -99,7 +100,7 @@ class Dispatcher implements DispatcherContract {
      */
     public function hasListeners( $eventName ) {
         return isset( $this->listeners[ $eventName ] ) ||
-            isset( $this->wildcards[ $eventName ] )    ||
+            isset( $this->wildcards[ $eventName ] ) ||
             $this->hasWildcardListeners( $eventName );
     }
 
@@ -122,7 +123,7 @@ class Dispatcher implements DispatcherContract {
     /**
      * Register an event and payload to be fired later.
      *
-     * @param string $event
+     * @param string       $event
      * @param object|array $payload
      * @return void
      */
@@ -186,7 +187,7 @@ class Dispatcher implements DispatcherContract {
      * Fire an event until the first non-null response is returned.
      *
      * @param string|object $event
-     * @param mixed $payload
+     * @param mixed         $payload
      * @return mixed
      */
     public function until( $event, $payload = [] ) {
@@ -197,8 +198,8 @@ class Dispatcher implements DispatcherContract {
      * Fire an event and call the listeners.
      *
      * @param string|object $event
-     * @param mixed $payload
-     * @param bool $halt
+     * @param mixed         $payload
+     * @param bool          $halt
      * @return array|null
      */
     public function dispatch( $event, $payload = [], $halt = false ) {
@@ -225,8 +226,8 @@ class Dispatcher implements DispatcherContract {
      * Broadcast an event and call its listeners.
      *
      * @param string|object $event
-     * @param mixed $payload
-     * @param bool $halt
+     * @param mixed         $payload
+     * @param bool          $halt
      * @return array|null
      */
     protected function invokeListeners( $event, $payload, $halt = false ) {
@@ -311,7 +312,7 @@ class Dispatcher implements DispatcherContract {
      * Add the listeners for the event's interfaces to the given array.
      *
      * @param string $eventName
-     * @param array $listeners
+     * @param array  $listeners
      * @return array
      */
     protected function addInterfaceListeners( $eventName, array $listeners = [] ) {
@@ -330,7 +331,7 @@ class Dispatcher implements DispatcherContract {
      * Prepare the listeners for a given event.
      *
      * @param string $eventName
-     * @return \Closure[]
+     * @return array<\Closure>
      */
     protected function prepareListeners( string $eventName ) {
         $listeners = [];
@@ -346,7 +347,7 @@ class Dispatcher implements DispatcherContract {
      * Register an event listener with the dispatcher.
      *
      * @param \Closure|string|array $listener
-     * @param bool $wildcard
+     * @param bool                  $wildcard
      * @return \Closure
      */
     public function makeListener( $listener, $wildcard = false ) {
@@ -371,7 +372,7 @@ class Dispatcher implements DispatcherContract {
      * Create a class based listener using the IoC container.
      *
      * @param string $listener
-     * @param bool $wildcard
+     * @param bool   $wildcard
      * @return \Closure
      */
     public function createClassListener( $listener, $wildcard = false ) {
@@ -457,4 +458,5 @@ class Dispatcher implements DispatcherContract {
     public function getRawListeners() {
         return $this->listeners;
     }
+
 }

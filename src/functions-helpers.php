@@ -9,8 +9,8 @@ if ( ! function_exists( __NAMESPACE__ . '\\event' ) ) {
      * Dispatch an event and call the listeners.
      *
      * @param string|object $event
-     * @param mixed $payload
-     * @param bool $halt
+     * @param mixed         $payload
+     * @param bool          $halt
      * @return array|null
      */
     function event( ...$args ) {
